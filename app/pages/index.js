@@ -387,7 +387,7 @@ const Home = ({randomContributors}) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Supporta Blitz
+                    Sostieni Blitz
                   </ButtonLink>
                 </div>
               </div>
