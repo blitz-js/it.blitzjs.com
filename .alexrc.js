@@ -10,4 +10,5 @@ exports.allow = [
   "herself-himself",
   "obvious",
   "alla",
+  "easy",
 ]
