@@ -51,16 +51,16 @@ const Home = ({randomContributors}) => {
               <div className="grid grid-cols-1 gap-10 px-6 mx-auto max-w-7xl lg:grid-cols-3 xl:grid-cols-2 md:gap-6 xl:-mt-10">
                 <div className="z-10 space-y-10 lg:w-full">
                   <h2 className="-mt-8 font-medium text-5xl-squashed lg:-mt-0 font-secondary xl:text-6xl xl:font-medium dark:text-transparent bg-clip-text bg-gradient-to-r from-blue-gradient-white to-blue-gradient-light-blue">
-                    The Fullstack React Framework
+                    Il Framework React Fullstack
                   </h2>
                   <p className="text-lg xl:text-xl xl:font-medium text-off-white lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:w-4/5">
-                    Blitz is a batteries-included framework that's inspired by Ruby on Rails, is
-                    built on Next.js, and features a "Zero-API" data layer abstraction that
-                    eliminates the need for REST/GraphQL.
+                    Blitz è un framework completo che si ispira a Ruby on Rails, è costruito su
+                    Node.js, and presenta un'astrazione del data layer "Zero-API" che elimina la
+                    necessità di utilizzare REST o GraphQL.
                   </p>
                   <div className="flex space-x-4">
                     <ButtonLink className="w-2/3 lg:w-auto rounded-tl-xl" href="/docs/get-started">
-                      Try Blitz in Under 5 Mins
+                      Prova Blitz in meno di 5 minuti
                     </ButtonLink>
                     <ButtonLink
                       href="https://github.com/blitz-js/blitz"
@@ -97,9 +97,10 @@ const Home = ({randomContributors}) => {
             </div>
             <div className="z-10 px-6 mx-auto space-y-12 text-lg text-center text-white lg:space-y-0 lg:space-x-12 lg:flex lg:text-left max-w-7xl xl:font-mediumxl:text-xl">
               <FeatureIcon icon="layers">
-                “Zero-API” data layer lets you{" "}
-                <strong>import server code directly into your components</strong> instead of having
-                to manually add API endpoints and do client-side fetching and caching.
+                Il data layer "Zero-API" consente di{" "}
+                <strong>importare il codice del server direttamente nei componenti</strong> invece
+                di dover aggiungere manualmente gli endpoint delle API ed eseguire il recupero e la
+                memorizzazione in cache lato client.
               </FeatureIcon>
               <FeatureIcon icon="lighteningBolt">
                 New Blitz apps come with all the{" "}
