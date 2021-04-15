@@ -3,25 +3,25 @@ title: Tutorial
 sidebar_label: Tutorial
 ---
 
-In this tutorial, we’ll walk you through the creation of a basic voting
-application.
+In questo tutorial, vi guideremo attraverso la creazione di una semplice
+applicazione di votazione.
 
-We’ll assume that you have [Blitz installed](./get-started) already. You
-can tell if Blitz is installed, and which version you have by running the
-following command in your terminal:
+Supponiamo che abbiate già [installato Blitz] (./ get-started). Potete
+sapere se Blitz è installato e quale versione hai eseguendo il seguente
+comando nel tuo terminale:
 
 ```sh
 blitz -v
 ```
 
-If Blitz is installed, you should see the version of your installation. If
-it isn’t, you’ll get an error saying something like “command not found:
-blitz”.
+Se Blitz è installato, dovreste vedere la versione della vostra
+installazione. Se non lo è, avrete un errore sul tipo di “command not
+found: blitz”.
 
-## Creating a new app {#creating-a-new-app}
+## Creare una nuova applicazione {#creating-a-new-app}
 
-From the command line, `cd` into the folder where you’d like to create
-your app, and then run the following command:
+Dalla riga di comando, `cd` all'interno della directory in cui vorreste
+creare la vostra applicazione e quindi lanciate il seguente comando:
 
 ```sh
 blitz new my-blitz-app
@@ -274,6 +274,7 @@ pages for the `Choice` model:
 ```sh
 blitz generate resource choice text votes:int:default=0 belongsTo:question
 ```
+
 If you get an error run `blitz prisma format`
 
 Again, hit **Enter** when prompted to run the migration and enter a name
