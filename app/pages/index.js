@@ -255,7 +255,7 @@ const Home = ({randomContributors}) => {
                 <div className="z-10 flex flex-col justify-between space-y-6 lg:justify-end">
                   <div className="flex flex-col space-y-6 lg:h-auto lg:text-transparent text-off-white">
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
-                      La nostra community è attiva, sicura, diversificata, inclusiva e divertente!
+                      La nostra community è calorosa, sicura, diversificata, inclusiva e divertente!
                       LGBTQ+, donne e minoranze sono particolarmente benvenute.
                     </p>
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
