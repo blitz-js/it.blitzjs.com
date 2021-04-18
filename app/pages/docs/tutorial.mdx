@@ -152,22 +152,24 @@ Ora che il server è attivo, apri il link
 [localhost:3000](http://localhost:3000) tramite web browser. Vedrai una
 pagina di benvenuto, con il logo Blitz. Funziona!
 
-## Sign up as a user {#sign-up-as-a-user}
+## Registrati come utente {#sign-up-as-a-user}
 
-Blitz apps are created with user signup and login already set up! So let's
-try it. Click on the **Sign Up** button. Enter any email and password and
-click **Create Account**. Then you'll be redirected back to the home page
-where you can see your user `id` and `role`.
+Le app Blitz vengono create con le procedure di registrazione e login
+utente già impostate! Quindi proviamo. Clicca sul pulsante **Sign Up**.
+Inserisci una qualsiasi email e password e clicca **Create Account**.
+Verrai reindirizzato alla homepage dove potrai vedere `id` e `ruolo` del
+tuo utente.
 
-If you want, you can also try logging out and logging back in. Or click
-**Forgot your password?** on the login page to try that flow.
+Se vuoi, puoi anche provare a effettuare il logout e poi riconnetterti
+nuovamente. Oppure clicca su **Forgot your password?** sulla pagina di
+login per verificare il flusso.
 
-## Write your first page {#write-your-first-page}
+## Crea la tua prima pagina {#write-your-first-page}
 
-Next let's create your first page.
+Andiamo quindi a creare la tua prima pagina.
 
-Open the file `app/pages/index.tsx` and replace the contents of the `Home`
-component with this:
+Apri il file `app/pages/index.tsx` e sostituisci il contenuto del
+component `Home` con questo:
 
 ```tsx
 //...
@@ -187,15 +189,15 @@ const Home: BlitzPage = () => {
 //...
 ```
 
-Save the file and you should see the page update in your browser. You can
-add customize this as much as you want. When you’re ready, move on to the
-next section.
+Una volta salvate lo modifiche dovresti vedere la pagina aggiornata sul
+browser. Puoi personalizzare questa parte come preferisci. Quando sei
+pronto, procedi col prossimo paragrafo.
 
 ## Database setup {#database-setup}
 
-Good news, an SQLite database was already set up for you! You can run
-`blitz prisma studio` in the terminal to open a web interface where you
-can see the data in your database.
+Buone notizie, un database SQLite è già pronto per te! Puoi lanciare
+`blitz prisma studio` nel terminale per aprire un'interfaccia web dove
+puoi visualizzare i dati nel tuo database.
 
 Note that when starting your first real project, you may want to use a
 more scalable database like PostgreSQL, to avoid the pains of switching
