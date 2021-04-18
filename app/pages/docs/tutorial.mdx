@@ -193,36 +193,38 @@ Una volta salvate lo modifiche dovresti vedere la pagina aggiornata sul
 browser. Puoi personalizzare questa parte come preferisci. Quando sei
 pronto, procedi col prossimo paragrafo.
 
-## Database setup {#database-setup}
+## Setup del database {#database-setup}
 
 Buone notizie, un database SQLite è già pronto per te! Puoi lanciare
 `blitz prisma studio` nel terminale per aprire un'interfaccia web dove
 puoi visualizzare i dati nel tuo database.
 
-Note that when starting your first real project, you may want to use a
-more scalable database like PostgreSQL, to avoid the pains of switching
-your database down the road. For more information, see
-[Database overview](database-overview). For now, we will continue with the
-default SQLite database.
+Nota che una volta avviato il tuo primo vero progetto, magari preferirai
+utilizzare un database più scalabile come PostgreSQL, per evitare il
+problema di dover cambiare database in corso d'opera. Per maggiori
+informazioni, consulta l'[overview sul database](database-overview). Per
+il momento, proseguiremo col database SQLite di default.
 
-## Scaffolding code for our models {#scaffolding-code-for-our-models}
+## Scaffolding del codice per i model {#scaffolding-code-for-our-models}
 
-Blitz provides a handy CLI command called [`generate`](./cli-generate) for
-scaffolding out boilerplate code. We'll use `generate` to create two
-models: `Question` and `Choice`. A `Question` has the text of the question
-and a list of choices. A `Choice` has the text of the choice, a vote
-count, and an associated question. Blitz will automatically generate an
-id, a creation timestamp, and a last updated timestamp for both models.
+Blitz fornisce un pratico comando CLI chiamato
+[`generate`](./cli-generate) per lo scaffolding del codice del nostro
+boilerplate. Useremo `generate` per creare due model: `Question` e
+`Choice`. Una `Question` conterrà il testo della domanda e un elenco di
+scelte. Una `Choice` conterrà il testo della scelta, un conteggio dei voti
+e una domanda associata. Blitz genererà automaticamente un ID, un
+timestamp di creazione e un timestamp dell'ultimo aggiornamento per
+entrambi i model.
 
-#### First, we'll generate everything pertaining to the `Question` model:
+#### Per prima cosa, creeremo tutto ciò che riguarda il model `Question`:
 
 ```sh
 blitz generate all question text:string
 ```
 
-And when prompted, press the **Enter** to run `prisma migrate` which will
-update your database schema with the new model. It will ask for a name, so
-type something like "add question".
+Quando richiesto, premere **Enter** per eseguire il comando
+`prisma migrate` che aggiornerà lo schema del database con il nuovo model.
+Chiederà un nome, quindi digita qualcosa come "add question".
 
 ```
 CREATE    app/pages/questions/[questionId].tsx
@@ -265,23 +267,23 @@ migrations/
 Everything is now in sync.
 ```
 
-The `generate` command with a type of `all` generates a model and queries,
-mutation and page files. See the [Blitz generate](./cli-generate) page for
-a list of available type options.
+Il comando `generate` con type `all` crea un model e i file per le query,
+mutation e pagine. Consulta la pagina [Blitz generate](./cli-generate) per
+la lista delle opzioni disponibili.
 
-#### Next we'll generate the `Choice` model with corresponding queries and mutations.
+#### Poi creeremo il model `Choice` con le corrispondenti query e mutation.
 
-We'll pass a type of `resource` this time as we don't need to generate
-pages for the `Choice` model:
+Questa volta passeremo un type `resource` dal momento che non abbiamo
+bisogno di creare pagine per il model `Choice`:
 
 ```sh
 blitz generate resource choice text votes:int:default=0 belongsTo:question
 ```
 
-If you get an error run `blitz prisma format`
+Se si verifica un errore, lancia il comando `blitz prisma format`
 
-Again, hit **Enter** when prompted to run the migration and enter a name
-for the migration.
+Di nuovo, premi **Enter** quando viene richiesto di lanciare la migration
+e inserisci un nome per quest'ultima.
 
 ```
 CREATE    app/choices/queries/getChoice.ts
@@ -305,10 +307,10 @@ CREATE    app/choices/mutations/updateChoice.ts
 ? Run 'prisma migrate dev' to update your database? (Y/n) › true
 ```
 
-#### Lastly let's update the `Question` model to have a relationship back to `Choice`.
+#### Infine andiamo ad aggiornare il model `Question` per metterlo in relazione con `Choice`.
 
-Open `db/schema.prisma` and add `choices Choice[]` to the `Question`
-model.
+Apri il file `db/schema.prisma` e aggiungi `choices Choice[]` al model
+`Question`.
 
 ```diff
 model Question {
@@ -320,21 +322,21 @@ model Question {
 }
 ```
 
-And then run `blitz prisma generate` to update prisma client for that
-schema change. This doesn't require a database migration because there's
-not an actual field being added to the `Question` model in the database.
+Quindi lancia il comando `blitz prisma generate` per aggiornare il client
+prisma su questa modifica nello schema. Questa operazione non richiede una
+migration del database, perchè non sono stati effettivamente aggiunti
+campi nel database per il model `Question`.
 
-## Playing with the Prisma database client {#playing-with-the-prisma-database-client}
+## Giocando col database client Prisma {#playing-with-the-prisma-database-client}
 
-Now, let’s hop into the interactive Blitz shell and play around with the
-Prisma database client that Blitz gives you. To start the Blitz console,
-use this command:
+Ora, saltiamo nella shell interattiva di Blitz e giochiamo con il database
+client Prisma che offre. Per avviare la console Blitz, usa questo comando:
 
 ```sh
 blitz console
 ```
 
-Once you’re in the console, explore the database client:
+Una volta che sei nella console, esplora il database client:
 
 ```sh
 # No questions are in the system yet.
