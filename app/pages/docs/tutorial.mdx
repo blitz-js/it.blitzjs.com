@@ -381,28 +381,26 @@ undefined
 ]
 ```
 
-## Update generated code for our model attributes {#update-generated-code-for-our-model-attributes}
+## Aggiornare il codice generato per gli attributi del model {#update-generated-code-for-our-model-attributes}
 
 <!-- prettier-ignore-start -->
 :::info
-Before running the app again, we need to customize some of the
-code that has been generated. Ultimately, these fixes will not be needed -
-but for now, we need to work around a couple outstanding issues.
+Prima di eseguire nuovamente l'app, è necessario personalizzare parte del codice generato. In futuro, queste correzioni non saranno necessarie - ma per ora dobbiamo aggirare un paio di problemi in sospeso.
 :::
 <!-- prettier-ignore-end -->
 
-The generated page content does not currently use the actual model
-attributes you defined during generation. It will soon, but in the
-meantime, let's fix the generated pages.
+Il contenuto della pagina generata attualmente non utilizza gli effettivi
+attributi del model definiti durante la generazione. Sarà presto così, ma
+nel frattempo andiamo a corregere le pagine generate.
 
-### Question pages {#question-pages}
+### Pagine per le Question {#question-pages}
 
 [//]:
   #
   "Remove the following section once `generate` uses actual model attributes"
 
-Jump over to `app/pages/questions/index.tsx`. Notice that a
-`QuestionsList` component has been generated for you:
+Apriamo il file `app/pages/questions/index.tsx`. È possibile notare che è
+stato generato un component `QuestionsList`:
 
 ```tsx
 // app/pages/questions/index.tsx
@@ -442,9 +440,9 @@ export const QuestionsList = () => {
 }
 ```
 
-This won’t work though! Remember that the `Question` model we created
-above doesn’t have any `name` field. To fix this, replace `question.name`
-with `question.text`:
+Questo però non funzionerà! Ricorda che il modello `Question` che abbiamo
+creato sopra non ha alcun campo `name`. Per risolvere questo problema,
+sostituisci `question.name` con `question.text`:
 
 ```diff
 // app/pages/questions/index.tsx
@@ -485,9 +483,9 @@ export const QuestionsList = () => {
 }
 ```
 
-Next, let’s apply a similar fix to
-`app/questions/components/QuestionForm.tsx`. In the form submission,
-replace the `LabeledTextField` `name` to be `"text"`
+Successivamente, applica una correzione simile a
+`app/questions/components/QuestionForm.tsx`. Nella parte di submission del
+form, sostituisci il `LabeledTextField` `name` con `"text"`
 
 ```diff
 export function QuestionForm<S extends z.ZodType<any, any>>(
@@ -502,10 +500,11 @@ export function QuestionForm<S extends z.ZodType<any, any>>(
 }
 ```
 
-### `createQuestion` mutation {#create-question-mutation}
+### Mutation `createQuestion` {#create-question-mutation}
 
-In `app/questions/mutations/createQuestion.ts`, we need to update the
-`CreateQuestion` zod validation schema to use `text` instead of `name`.
+In `app/questions/mutations/createQuestion.ts`, abbiamo bisogno di
+aggiornare lo zod validation schema `CreateQuestion` per usare `text`
+invece di `name`.
 
 ```diff
 // app/questions/mutations/createQuestion.ts
@@ -519,10 +518,11 @@ const CreateQuestion = z
 // ...
 ```
 
-### `updateQuestion` mutation {#update-question-mutation}
+### Mutation `updateQuestion` {#update-question-mutation}
 
-In `app/questions/mutations/updateQuestion.ts`, we need to update the
-`UpdateQuestion` zod validation schema to use `text` instead of `name`.
+In `app/questions/mutations/updateQuestion.ts`, abbiamo bisogno di
+aggiornare lo zod validation schema `UpdateQuestion` per usare `text`
+invece di `name`.
 
 ```diff
 // app/questions/mutations/updateQuestion.ts
@@ -537,22 +537,23 @@ const UpdateQuestion = z
 // ...
 ```
 
-### `deleteQuestion` mutation {#delete-question-mutation}
+### Mutation `deleteQuestion` {#delete-question-mutation}
 
 [//]: # "Remove this section once Prisma supports cascading deletes"
 
-Prisma does not yet support "cascading deletes". In the context of this
-tutorial, that means it does not currently delete the `Choice` data when
-deleting a `Question`. We need to temporarily augment the generated
-`deleteQuestion` mutation in order to do this manually. Open up
-`app/questions/mutations/deleteQuestion.ts` in your text editor and add
-the following to the top of the function body:
+Prisma non supporta ancore le "cascading delete". Nell'ambito di questo
+tutorial, questo implica che non vengono cancellati i dati di `Choice`
+quando viene cancellata una `Question`. Abbiamo bisogno di aumentare
+temporaneamente la mutation `deleteQuestion` in modo da effettuare
+l'operazione manualmente. Apri il file
+`app/questions/mutations/deleteQuestion.ts` in un editor di testo e
+aggiungi il seguente contenuto all'inizio del corpo della funzione:
 
 ```ts
 await db.choice.deleteMany({where: {questionId: id}})
 ```
 
-The end result should be as such:
+Il risultato finale dovrebbe essere qualcosa del genere:
 
 ```diff
 // app/questions/mutations/deleteQuestion.ts
@@ -569,14 +570,15 @@ export default resolver.pipe(
 )
 ```
 
-This mutation will now delete the choices associated with the question
-prior to deleting the question itself.
+Questa mutation eliminerà ora le choice associate ad una question prima di
+eliminare la question stessa.
 
-#### Now try creating, updating, and deleting questions
+#### Ora prova a creare, aggiornare ed eliminare le domande
 
-Great! Now make sure your app is running. If it isn’t, run `blitz dev` in
-your terminal, and visit `localhost:3000/questions`. Try creating
-questions, editing, and deleting them.
+Ottimo! Ora assicurati che la tua app sia in esecuzione. In caso
+contrario, esegui `blitz dev` nel tuo terminale e collegati a
+`localhost:3000/questions`. Prova a creare domande, modificarle ed
+eliminarle.
 
 ## Adding choices to the question form {#adding-choices-to-the-question-form}
 
