@@ -553,7 +553,7 @@ aggiungi il seguente contenuto all'inizio del corpo della funzione:
 await db.choice.deleteMany({where: {questionId: id}})
 ```
 
-Il risultato finale dovrebbe essere qualcosa del genere:
+Il risultato finale sarà qualcosa di questo tipo:
 
 ```diff
 // app/questions/mutations/deleteQuestion.ts
@@ -570,8 +570,8 @@ export default resolver.pipe(
 )
 ```
 
-Questa mutation eliminerà ora le choice associate ad una question prima di
-eliminare la question stessa.
+Questa mutation eliminerà ora le scelte associate ad una domanda prima di
+eliminare la domanda stessa.
 
 #### Ora prova a creare, aggiornare ed eliminare le domande
 
@@ -580,13 +580,13 @@ contrario, esegui `blitz dev` nel tuo terminale e collegati a
 `localhost:3000/questions`. Prova a creare domande, modificarle ed
 eliminarle.
 
-## Adding choices to the question form {#adding-choices-to-the-question-form}
+## Aggiungere delle scelte al form della domanda {#adding-choices-to-the-question-form}
 
-You’re doing great so far! The next thing we’ll do is add choices to our
-question form. Open `app/questions/components/QuestionForm.tsx` in your
-editor.
+Fin qui ottimo lavoro! Il prossimo passo che faremo è aggiungere delle
+scelte al form della domanda. Apri il file
+`app/questions/components/QuestionForm.tsx` nell' editor.
 
-Add three more `<LabeledTextField>` components as choices.
+Aggiungi altri tre component `<LabeledTextField>` come scelte.
 
 ```diff
 export function QuestionForm<S extends z.ZodType<any, any>>(
@@ -603,8 +603,8 @@ export function QuestionForm<S extends z.ZodType<any, any>>(
 }
 ```
 
-Next open `app/pages/questions/new.tsx` and set `initialValues` to be as
-follows:
+Poi apri il file `app/pages/questions/new.tsx` e imposta la variabile
+`initialValues` come segue:
 
 ```diff
       <QuestionForm
@@ -625,10 +625,10 @@ follows:
       />
 ```
 
-Then open `app/questions/mutations/createQuestion.ts` and update the zod
-schema so that the choice data is accepted in the mutation. And we also
-need to update the `db.question.create` call so that the choices will also
-be created.
+Adesso apri il file `app/questions/mutations/createQuestion.ts` e aggiorna
+lo schema zod in modo tale che i dati della scelta siano accettati nella
+mutation. È anche necessario aggiornare la chiamata `db.question.create`
+in modo tale che le scelte vengano anche create.
 
 ```diff
 // app/questions/mutations/createQuestion.ts
@@ -657,19 +657,19 @@ export default resolver.pipe(
 )
 ```
 
-#### Try it out
+#### Provalo
 
-Now you can go to `localhost:3000/questions/new` and create a new question
-with choices!
+Adesso puoi collegarti su `localhost:3000/questions/new` e creare una
+nuova domanda completa di scelte!
 
-## Listing choices {#listing-choices}
+## Elencare le choice {#listing-choices}
 
-Time for a breather. Go back to `localhost:3000/questions` in your browser
-and look at all the questions you‘ve created. How about we list these
-questions’ choices here too? First, we need to customize the question
-queries. In Prisma, you need to manually let the client know that you want
-to query for nested relations. Change your `getQuestion.ts` and
-`getQuestions.ts` files to look like this:
+Prendiamoci un attimo di respiro. Torna su `localhost:3000/questions` e
+guarda tutte le domande che hai creato. Che ne dici di elencare anche qui
+le scelte di queste domande? Per prima cosa, dobbiamo personalizzare le
+query delle domande. In Prisma, è necessario comunicare manualmente al
+client che si desidera eseguire una query per le relazioni nested.
+Modifica i file `getQuestion.ts` e `getQuestions.ts` in questo modo:
 
 ```diff
 // app/questions/queries/getQuestion.ts
@@ -731,9 +731,9 @@ export default resolver.pipe(
 )
 ```
 
-Now hop back to our main questions page
-(`app/pages/questions/index.tsx`)in your editor, and we can list the
-choices of each question. And add this code beneath the `Link` in our
+Adesso riprendi sull'editor la pagina principale delle domande
+(`app/pages/questions/index.tsx`), in modo da poter elencare la lista
+delle choice per ogni domanda. Aggiungi questo codice sotto `Link` nel
 `QuestionsList`:
 
 ```diff
@@ -759,18 +759,18 @@ choices of each question. And add this code beneath the `Link` in our
 // ...
 ```
 
-Now check `/questions` in the browser. **Magic!**
+Adesso controlla la pagina `/questions` sul browser. **Magia!**
 
-## Let’s let people vote on these questions! {#let-people-vote-on-questions}
+## Lasciamo che le persone votino sulle domande! {#let-people-vote-on-questions}
 
-Open `app/pages/questions/[questionId].tsx` in your editor. First, we’re
-going to improve this page somewhat.
+Apriamo `app/pages/questions/[questionId].tsx` nell'editor. Innanzitutto,
+miglioreremo leggermente questa pagina.
 
-1. Replace `<h1>Question {question.id}</h1>` with
+1. Sostituisci `<h1>Question {question.id}</h1>` con
    `<h1>{question.text}</h1>`.
 
-2. Delete the `pre` element, and copy in our choices list which we wrote
-   before:
+2. Cancella l'elemento `pre`, e copia nella lista della scelte quello che
+   abbiamo scritto prima:
 
 ```tsx
 <ul>
@@ -782,8 +782,7 @@ going to improve this page somewhat.
 </ul>
 ```
 
-If you go back to your browser, your page should now look something like
-this!
+Se ritorni sul browser, la pagina dovrebbe essere qualcosa di simile!
 
 <img
   width="567"
@@ -791,10 +790,11 @@ this!
   src="https://user-images.githubusercontent.com/24858006/80387990-3c3d8b80-88a1-11ea-956a-5be85f1e8f12.png"
 />
 
-#### Now it’s time to add voting!
+#### Ora è il momento di aggiungere la votazione!
 
-First we need to open `app/choices/mutations/updateChoice.ts`, update the
-zod schema, and add add a vote increment.
+Per prima cosa dobbiamo aprire il file
+`app/choices/mutations/updateChoice.ts`, aggiornare lo schema zod e
+aggiungere un incremento di voto.
 
 ```diff
 const UpdateChoice = z
@@ -819,10 +819,10 @@ export default resolver.pipe(
 )
 ```
 
-Now go back to `app/pages/questions/[questionId].tsx` and make the
-following changes:
+Adesso ritorna sul file `app/pages/questions/[questionId].tsx` e applica
+le seguenti modifiche:
 
-In our `li`, add a `button` like so:
+Nel tuo `li`, aggiungi un `button` come questo:
 
 ```tsx
 <li key={choice.id}>
@@ -831,8 +831,8 @@ In our `li`, add a `button` like so:
 </li>
 ```
 
-Then, import the `updateChoice` mutation we updated and create a
-`handleVote` function in our page:
+Quindi, importa la mutation `updateChoice` che abbiamo aggiornato e crea
+una funzione `handleVote` nella nostra pagina:
 
 ```diff
 // app/pages/questions/[questionId].tsx
@@ -859,8 +859,8 @@ export const Question = () => {
   return (
 ```
 
-And then we need to update the question `useQuery` call to return the
-`refetch` function which we use inside `handleVote`:
+Poi è necessario aggiornare la chiamata `useQuery` per restituire la
+function `refetch` che utilizziamo all'interno di `handleVote`:
 
 ```diff
 // app/pages/questions/[questionId].tsx
@@ -871,13 +871,14 @@ And then we need to update the question `useQuery` call to return the
 //...
 ```
 
-Finally, we’ll tell our new `button` to call that function!
+Infine, diremo al nostro nuovo `button` di richiamare quella function!
 
 ```tsx
 <button onClick={() => handleVote(choice.id)}>Vote</button>
 ```
 
-The final `Question` component should now look like this:
+La versione finale del component `Question` dovrebbe essere qualcosa di
+simile:
 
 ```tsx
 export const Question = () => {
@@ -935,14 +936,14 @@ export const Question = () => {
 }
 ```
 
-## Lastly, let's allow editing choices for an existing question {#edit-choices-for-question}
+## Infine, consentiamo di modificare le scelte per una domanda esistente {#edit-choices-for-question}
 
-If you click the **Edit** button on one of your existing questions, you'll
-see it uses the same form as creating questions. So that part is already
-done! We only need to update our mutation.
+Se clicchi sul pulsante **Edit** su una delle domande esistenti, vedrai
+che utilizza lo stesso form rispetto alla creazione di una domande. Quindi
+quella parte è già fatta! Dobbiamo solo aggiornare la mutation.
 
-Open `app/questions/mutations/updateQuestion.ts` and make the following
-changes:
+Apri il file `app/questions/mutations/updateQuestion.ts` e effettua le
+seguenti modifiche:
 
 ```diff
 // app/questions/mutations/updateQuestion.ts
@@ -987,24 +988,27 @@ export default resolver.pipe(
 ```
 
 [`upsert`](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert)
-is a special operation that means, "If this item exists, update it. Else
-create it". This is perfect for this case because we didn't require the
-user to add three choices when creating the question. So if later the user
-adds another choice by editing the question, then it'll be created here.
+è un'operazione speciale che significa: "Se questo elemento esiste,
+aggiornalo. Altrimenti crealo". Questo è perfetto per questo caso perché
+non abbiamo richiesto all'utente di aggiungere tre scelte durante la
+creazione della domanda. Quindi, se in seguito l'utente aggiunge un'altra
+scelta modificando la domanda, questa verrà creata qui.
 
-## Conclusion {#conclusion}
+## Conclusione {#conclusion}
 
-🥳 Congrats! You created your very own Blitz app! Have fun playing around
-with it, or sharing it with your friends. Now that you’ve finished this
-tutorial, why not try making your voting app even better? You could try:
+🥳 Congratulazioni! Hai creato la tua app Blitz! Divertiti a giocarci o
+condividila con i tuoi amici. Ora che hai finito questo tutorial, perché
+non provare a migliorare ulteriormente la tua app di voto? Potresti
+provare a:
 
-- Adding styling (Hint, try `blitz install tailwind` or
+- Aggiungere degli stili (Suggerimento, prova `blitz install tailwind` o
   `blitz install chakra-ui`)
-- Showing some more statistics about votes
-- Deploying live on [Render](./deploy-render) or [Vercel](./deploy-vercel)
+- Mostrare qualche altra statistica sui voti
+- Effettuare un deploy live su [Render](./deploy-render) o
+  [Vercel](./deploy-vercel)
 
-If you want to share your project with the world wide Blitz community
-there is no better place to do that than on Discord.
+Se vuoi condividere il tuo progetto con la community mondiale di Blitz,
+non c'è modo migliore per farlo che su Discord.
 
-Visit [discord.blitzjs.com](https://discord.blitzjs.com). Then, post the
-link to the **#built-with-blitz** channel to share it with everyone!
+Visita [discord.blitzjs.com](https://discord.blitzjs.com). Quindi, carica
+il link sul canale **#built-with-blitz** per condividerlo con tutti!
