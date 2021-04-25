@@ -99,8 +99,8 @@ const Home = ({randomContributors}) => {
               <FeatureIcon icon="layers">
                 Il data layer "Zero-API" consente di{" "}
                 <strong>importare il codice del server direttamente nei componenti</strong> invece
-                di dover aggiungere manualmente gli endpoint delle API ed eseguire il recupero e la
-                memorizzazione in cache lato client.
+                di dover aggiungere manualmente gli endpoint delle API ed eseguire fetching e
+                caching lato client.
               </FeatureIcon>
               <FeatureIcon icon="lighteningBolt">
                 Una nuova applicazione Blitz è dotata di{" "}
@@ -154,12 +154,10 @@ const Home = ({randomContributors}) => {
                     </Feature>
                     <Feature title="API Non Richieste">
                       <p>
-                        Instead of fetching data from the backend, you import your server code
-                        directly into your components. At build time, that function import is
-                        swapped out with an auto generated HTTP API. Invece di recuperare i dati dal
-                        back-end, puoi importare il codice del server direttamente nei componenti.
-                        In fase di compilazione, questa importazione viene sostituita con un'API
-                        HTTP generata automaticamente.
+                        Invece di eseguire il fetching dei dati dal back-end, puoi importare il
+                        codice del server direttamente nei componenti. In fase di compilazione,
+                        questa importazione viene sostituita con un'API HTTP generata
+                        automaticamente.
                       </p>
                       <p>
                         L'API generata può anche essere utilizzata da altre applicazioni o sistemi
@@ -174,7 +172,7 @@ const Home = ({randomContributors}) => {
                       </p>
                       <p>
                         E quasi tutto è collegabile. Ad esempio, non stabiliamo quali librerie di
-                        stili o moduli utilizzi.
+                        styling o form tu debba utilizzare.
                       </p>
                     </Feature>
                     <Feature title="Convenzione su Configurazione">
@@ -187,7 +185,7 @@ const Home = ({randomContributors}) => {
                     <Feature title="Facile da Iniziare, Facile da Scalare">
                       <p>
                         Facile sia per i principianti che per chi volesse migrare un'app
-                        preesistente da Next.js a Blitx.
+                        pre-esistente da Next.js a Blitz.
                       </p>
                       <p>
                         {" "}
@@ -325,7 +323,7 @@ const Home = ({randomContributors}) => {
                 />
                 <FeatureIconTitle icon="thumbsUp" title="Autenticazione e Permessi">
                   L'autenticazione integrata è semplicissima e molto sicura. Funziona con qualsiasi
-                  identity provider, inclusi nome utente e password self-hosted e sistemdi di terze
+                  identity provider, inclusi nome utente e password self-hosted e sistemi di terze
                   parti come Auth0.
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="database" title="Libertà sul Database">
@@ -334,7 +332,7 @@ const Home = ({randomContributors}) => {
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="fileCode" title="Recipe">
                   Un comando per installare codice e/o package all'interno dell'app Blitz. Ad
-                  esempio: `blitz install tailwind` o `blitz install chakra-ui`. Una Recipe può
+                  esempio: `blitz install tailwind` o `blitz install chakra-ui`. Una recipe può
                   essere creata da chiunque.
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="plugin" title="Architettura Backend">
@@ -345,7 +343,7 @@ const Home = ({randomContributors}) => {
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="typescript" title="Eccellente Supporto per Typescript">
                   Blitz è realizzato con Typescript e il suo data layer è completamente sicuro
-                  end-to-end. Tutti i tipi sono completamente statici senza bisogno di un processo
+                  end-to-end. Tutti i type sono completamente statici senza bisogno di un processo
                   di generazione separato!
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="scaffolding" title="Code Scaffolding">
@@ -377,7 +375,7 @@ const Home = ({randomContributors}) => {
                 <p className="text-lg xl:text-xl">
                   I vostri contributi aiutano a garantire che Blitz continui a essere sviluppato e{" "}
                   <br className="hidden lg:block" />
-                  manutenuto! Abbiamo opzioni di sponsorizzazione mensili a partire da $5/mese.
+                  mantenuto! Abbiamo opzioni di sponsorizzazione mensili a partire da $5/mese.
                 </p>
                 <div>
                   <ButtonLink
@@ -414,7 +412,7 @@ const Home = ({randomContributors}) => {
                   href="https://discord.blitzjs.com"
                   className="w-full text-lg py-18 rounded-br-2xl md:rounded-tr-2xl"
                 >
-                  Entra in Discord
+                  Entra su Discord
                 </ButtonLink>
               </div>
             </div>
