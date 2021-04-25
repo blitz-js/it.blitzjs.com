@@ -205,16 +205,15 @@ problema di dover cambiare database in corso d'opera. Per maggiori
 informazioni, consulta l'[overview sul database](database-overview). Per
 il momento, proseguiremo col database SQLite di default.
 
-## Scaffolding del codice per i model {#scaffolding-code-for-our-models}
+## Scaffolding per i model {#scaffolding-code-for-our-models}
 
 Blitz fornisce un pratico comando CLI chiamato
-[`generate`](./cli-generate) per lo scaffolding del codice del nostro
-boilerplate. Useremo `generate` per creare due model: `Question` e
-`Choice`. Una `Question` conterrà il testo della domanda e un elenco di
-scelte. Una `Choice` conterrà il testo della scelta, un conteggio dei voti
-e una domanda associata. Blitz genererà automaticamente un ID, un
-timestamp di creazione e un timestamp dell'ultimo aggiornamento per
-entrambi i model.
+[`generate`](./cli-generate) per lo scaffolding del nostro boilerplate.
+Useremo `generate` per creare due model: `Question` e `Choice`. Una
+`Question` conterrà il testo della domanda e un elenco di scelte. Una
+`Choice` conterrà il testo della scelta, un conteggio dei voti e una
+domanda associata. Blitz genererà automaticamente un ID, un timestamp di
+creazione e un timestamp dell'ultimo aggiornamento per entrambi i model.
 
 #### Per prima cosa, creeremo tutto ciò che riguarda il model `Question`:
 
@@ -282,9 +281,9 @@ blitz generate resource choice text votes:int:default=0 belongsTo:question
 
 Se si verifica un errore, lancia il comando `blitz prisma format`
 
-Nota che questo non richiede una migration del database perché non abbiamo 
-ancora aggiunto il campo `Choice` al model `Question`. Quindi scegliamo `false` 
-quando ci viene chiesto di eseguire la migration:
+Nota che questo non richiede una migration del database perché non abbiamo
+ancora aggiunto il campo `Choice` al model `Question`. Quindi scegliamo
+`false` quando ci viene chiesto di eseguire la migration:
 
 ```
 CREATE    app/choices/queries/getChoice.ts
@@ -346,7 +345,8 @@ migrations/
 Your database is now in sync with your schema.
 ```
 
-Adesso il nostro database è pronto ed è stato anche generato un client Prisma. Proseguiamo col giocare col client Prisma!
+Adesso il nostro database è pronto ed è stato anche generato un client
+Prisma. Proseguiamo col giocare col client Prisma!
 
 ## Giocando col database client Prisma {#playing-with-the-prisma-database-client}
 
