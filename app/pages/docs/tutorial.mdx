@@ -6,7 +6,7 @@ sidebar_label: Tutorial
 In questo tutorial, ti guideremo attraverso la creazione di una semplice
 applicazione di votazione.
 
-Supponiamo che tu abbia già [installato Blitz] (./ get-started). Puoi
+Supponiamo che tu abbia già [installato Blitz] (./get-started). Puoi
 verificare se Blitz sia installato e quale versione hai eseguendo il
 seguente comando nel tuo terminale:
 
@@ -18,7 +18,7 @@ Se Blitz è installato, dovresti vedere la versione della tua
 installazione. Se non lo è, avrai un errore del tipo “command not found:
 blitz”.
 
-## Creare una nuova applicazione {#creating-a-new-app}
+## Creare una nuova applicazione {#creare-una-nuova-applicazione}
 
 Dalla riga di comando, esegui un `cd` all'interno della directory in cui
 vorresti creare la tua applicazione e quindi lancia il seguente comando:
@@ -100,7 +100,7 @@ my-blitz-app
 Questi file sono:
 
 - La directory `app/` contiene la maggior parte del progetto. Qui è dove
-  verrà inserita ogni pagina o rotta per le API.
+  verrà inserita ogni pagina o route per le API.
 
 - La directory `app/pages/` è quella primaria per le pagine. Se hai
   utilizzato Next.js noterai immediatamente la differenza. In Blitz è
@@ -119,23 +119,23 @@ Questi file sono:
   dell'applicazione, il posto giusto dove inserirli è questo.
 
 - `.babelrc.js`, `.env`, etc. ("dotfiles") sono file di configurazione per
-  i vari tool Javascript.
+  i vari tool JavaScript.
 
 - `blitz.config.js` serve per una personalizzazione avanzata di Blitz. Ha
   lo stesso formato di `next.config.js`.
 
 - `tsconfig.json` è la nostra configurazione consigliata per TypeScript.
 
-## Il server di sviluppo {#the-development-server}
+## Il server di sviluppo {#il-server-di-sviluppo}
 
-Assicurati di essere all'interno della directory `my-blitz-app` folder, se
-già non lo sei, e lancia il seguente comando:
+Assicurati di essere all'interno della directory `my-blitz-app`, se già
+non lo sei, e lancia il seguente comando:
 
 ```sh
 blitz dev
 ```
 
-Vedrai il seguent output sulla command line:
+Vedrai il seguente output sulla command line:
 
 ```sh
 ✔ Compiled
@@ -148,11 +148,11 @@ info  - Using external babel configuration from /my-blitz-app/babel.config.js
 event - compiled successfully
 ```
 
-Ora che il server è attivo, apri il link
-[localhost:3000](http://localhost:3000) tramite web browser. Vedrai una
-pagina di benvenuto, con il logo Blitz. Funziona!
+Ora che il server è attivo, visita [localhost:3000](http://localhost:3000)
+tramite web browser. Vedrai una pagina di benvenuto, con il logo Blitz.
+Funziona!
 
-## Registrati come utente {#sign-up-as-a-user}
+## Registrati come utente {#registrati-come-utente}
 
 Le app Blitz vengono create con le procedure di registrazione e login
 utente già impostate! Quindi proviamo. Clicca sul pulsante **Sign Up**.
@@ -164,7 +164,7 @@ Se vuoi, puoi anche provare a effettuare il logout e poi riconnetterti
 nuovamente. Oppure clicca su **Forgot your password?** sulla pagina di
 login per verificare il flusso.
 
-## Crea la tua prima pagina {#write-your-first-page}
+## Crea la tua prima pagina {#crea-la-tua-prima-pagina}
 
 Andiamo quindi a creare la tua prima pagina.
 
@@ -189,11 +189,11 @@ const Home: BlitzPage = () => {
 //...
 ```
 
-Una volta salvate lo modifiche dovresti vedere la pagina aggiornata sul
+Una volta salvate le modifiche dovresti vedere la pagina aggiornata sul
 browser. Puoi personalizzare questa parte come preferisci. Quando sei
 pronto, procedi col prossimo paragrafo.
 
-## Setup del database {#database-setup}
+## Setup del database {#setup-del-database}
 
 Buone notizie, un database SQLite è già pronto per te! Puoi lanciare
 `blitz prisma studio` nel terminale per aprire un'interfaccia web dove
@@ -205,7 +205,7 @@ problema di dover cambiare database in corso d'opera. Per maggiori
 informazioni, consulta l'[overview sul database](database-overview). Per
 il momento, proseguiremo col database SQLite di default.
 
-## Scaffolding per i model {#scaffolding-code-for-our-models}
+## Scaffolding per i model {#scaffolding-per-i-model}
 
 Blitz fornisce un pratico comando CLI chiamato
 [`generate`](./cli-generate) per lo scaffolding del nostro boilerplate.
@@ -348,10 +348,11 @@ Your database is now in sync with your schema.
 Adesso il nostro database è pronto ed è stato anche generato un client
 Prisma. Proseguiamo col giocare col client Prisma!
 
-## Giocando col database client Prisma {#playing-with-the-prisma-database-client}
+## Giocando col database client Prisma {#giocando-col-database-client-prisma}
 
 Ora, saltiamo nella shell interattiva di Blitz e giochiamo con il database
-client Prisma che offre. Per avviare la console Blitz, usa questo comando:
+client Prisma che Blitz offre. Per avviare la console Blitz, usa questo
+comando:
 
 ```sh
 blitz console
@@ -402,7 +403,7 @@ undefined
 ]
 ```
 
-## Aggiornare il codice generato per gli attributi del model {#update-generated-code-for-our-model-attributes}
+## Aggiornare il codice generato per gli attributi del model {#aggiornare-il-codice-generato-per-gli-attributi-del-model}
 
 <!-- prettier-ignore-start -->
 :::info
@@ -412,9 +413,9 @@ Prima di eseguire nuovamente l'app, è necessario personalizzare parte del codic
 
 Il contenuto della pagina generata attualmente non utilizza gli effettivi
 attributi del model definiti durante la generazione. Sarà presto così, ma
-nel frattempo andiamo a corregere le pagine generate.
+nel frattempo andiamo a correggere le pagine generate.
 
-### Pagine per le Question {#question-pages}
+### Pagine per le domande {#pagine-per-le-domande}
 
 [//]:
   #
@@ -539,7 +540,7 @@ export function QuestionForm<S extends z.ZodType<any, any>>(
 }
 ```
 
-### Mutation `createQuestion` {#create-question-mutation}
+### Mutation `createQuestion` {#mutation-create-question}
 
 In `app/questions/mutations/createQuestion.ts`, abbiamo bisogno di
 aggiornare lo zod validation schema `CreateQuestion` per usare `text`
@@ -576,7 +577,7 @@ const UpdateQuestion = z
 // ...
 ```
 
-### Mutation `deleteQuestion` {#delete-question-mutation}
+### Mutation `deleteQuestion` {#mutation-delete-question}
 
 [//]: # "Remove this section once Prisma supports cascading deletes"
 
@@ -619,11 +620,11 @@ contrario, esegui `blitz dev` nel tuo terminale e collegati a
 `localhost:3000/questions`. Prova a creare domande, modificarle ed
 eliminarle.
 
-## Aggiungere delle scelte al form della domanda {#adding-choices-to-the-question-form}
+## Aggiungere delle scelte al form della domanda {#aggiungere-delle-scelte-al-form-della-domanda}
 
 Fin qui ottimo lavoro! Il prossimo passo che faremo è aggiungere delle
 scelte al form della domanda. Apri il file
-`app/questions/components/QuestionForm.tsx` nell' editor.
+`app/questions/components/QuestionForm.tsx` nell'editor.
 
 Aggiungi altri tre component `<LabeledTextField>` come scelte.
 
@@ -701,7 +702,7 @@ export default resolver.pipe(
 Adesso puoi collegarti su `localhost:3000/questions/new` e creare una
 nuova domanda completa di scelte!
 
-## Elencare le choice {#listing-choices}
+## Elencare le scelte {#elencare-le-scelte}
 
 Prendiamoci un attimo di respiro. Torna su `localhost:3000/questions` e
 guarda tutte le domande che hai creato. Che ne dici di elencare anche qui
@@ -800,7 +801,7 @@ delle choice per ogni domanda. Aggiungi questo codice sotto `Link` nel
 
 Adesso controlla la pagina `/questions` sul browser. **Magia!**
 
-## Lasciamo che le persone votino sulle domande! {#let-people-vote-on-questions}
+## Lasciamo che le persone votino sulle domande! {#lasciamo-che-le-persone-votino-sulle-domande}
 
 Apriamo `app/pages/questions/[questionId].tsx` nell'editor. Innanzitutto,
 miglioreremo leggermente questa pagina.
@@ -975,13 +976,13 @@ export const Question = () => {
 }
 ```
 
-## Infine, consentiamo di modificare le scelte per una domanda esistente {#edit-choices-for-question}
+## Infine, consentiamo di modificare le scelte per una domanda esistente {#modificare-le-scelte-per-una-domanda}
 
 Se clicchi sul pulsante **Edit** su una delle domande esistenti, vedrai
 che utilizza lo stesso form rispetto alla creazione di una domande. Quindi
 quella parte è già fatta! Dobbiamo solo aggiornare la mutation.
 
-Apri il file `app/questions/mutations/updateQuestion.ts` e effettua le
+Apri il file `app/questions/mutations/updateQuestion.ts` ed effettua le
 seguenti modifiche:
 
 ```diff
@@ -1033,7 +1034,7 @@ non abbiamo richiesto all'utente di aggiungere tre scelte durante la
 creazione della domanda. Quindi, se in seguito l'utente aggiunge un'altra
 scelta modificando la domanda, questa verrà creata qui.
 
-## Conclusione {#conclusion}
+## Conclusione {#conclusione}
 
 🥳 Congratulazioni! Hai creato la tua app Blitz! Divertiti a giocarci o
 condividila con i tuoi amici. Ora che hai finito questo tutorial, perché
