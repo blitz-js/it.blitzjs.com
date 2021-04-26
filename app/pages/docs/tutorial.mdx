@@ -3,35 +3,35 @@ title: Tutorial
 sidebar_label: Tutorial
 ---
 
-In this tutorial, we’ll walk you through the creation of a basic voting
-application.
+In questo tutorial, ti guideremo attraverso la creazione di una semplice
+applicazione di votazione.
 
-We’ll assume that you have [Blitz installed](./get-started) already. You
-can tell if Blitz is installed, and which version you have by running the
-following command in your terminal:
+Supponiamo che tu abbia già [installato Blitz] (./get-started). Puoi
+verificare se Blitz sia installato e quale versione hai eseguendo il
+seguente comando nel tuo terminale:
 
 ```sh
 blitz -v
 ```
 
-If Blitz is installed, you should see the version of your installation. If
-it isn’t, you’ll get an error saying something like “command not found:
+Se Blitz è installato, dovresti vedere la versione della tua
+installazione. Se non lo è, avrai un errore del tipo “command not found:
 blitz”.
 
-## Creating a new app {#creating-a-new-app}
+## Creare una nuova applicazione {#creare-una-nuova-applicazione}
 
-From the command line, `cd` into the folder where you’d like to create
-your app, and then run the following command:
+Dalla riga di comando, esegui un `cd` all'interno della directory in cui
+vorresti creare la tua applicazione e quindi lancia il seguente comando:
 
 ```sh
 blitz new my-blitz-app
 ```
 
-Blitz will create a `my-blitz-app` folder in your current folder. You will
-be prompted to pick a form library. For this tutorial, select the
-recommended library `React Final Form`.
+Blitz creerà una directory `my-blitz-app` nella tua directory attuale. Ti
+verrà chiesto di selezionare una libreria per il form. Per questo
+tutorial, scegliere l'opzione di default `React Final Form`.
 
-Let’s look at what `blitz new` created:
+Diamo un'occhiata a quello che `blitz new` ha creato:
 
 ```
 my-blitz-app
@@ -97,44 +97,45 @@ my-blitz-app
 └── yarn.lock
 ```
 
-These files are:
+Questi file sono:
 
-- The `app/` folder is a container for most of your project. This is where
-  you’ll put any pages or API routes.
+- La directory `app/` contiene la maggior parte del progetto. Qui è dove
+  verrà inserita ogni pagina o route per le API.
 
-- The `app/pages/` folder is the primary pages folder. If you've used
-  Next.js you'll immediately notice this is different. In Blitz, you can
-  have many `pages` folders and they will be merged together at build
-  time.
+- La directory `app/pages/` è quella primaria per le pagine. Se hai
+  utilizzato Next.js noterai immediatamente la differenza. In Blitz è
+  possibile avere più directory `pages` su cui poi verrà fatto un merge in
+  fase di build.
 
-- The `app/core/` folder is the main place to put components, hooks, etc
-  that are used throughout your app.
+- La directory `app/core/` è il luogo principale in cui inserire
+  component, hook, ecc. che verranno utilizzati all'interno
+  dell'applicazione.
 
-- `db/` is where your database configuration goes. If you’re writing
-  models or checking migrations, this is where to go.
+- `db/` è dove vengono inserite le configurazioni per il database. Se stai
+  realizzando model o migration, qui è dove devono essere inseriti.
 
-- `public/` is a folder where you will put any static assets. If you have
-  images, files, or videos which you want to use in your app, this is
-  where to put them.
+- `public/` è dove andranno inseriti tutti gli asset statici. Se hai
+  immagini, file o video che andranno utilizzati all'interno
+  dell'applicazione, il posto giusto dove inserirli è questo.
 
-- `.babelrc.js`, `.env`, etc. ("dotfiles") are configuration files for
-  various bits of JavaScript tooling.
+- `.babelrc.js`, `.env`, etc. ("dotfiles") sono file di configurazione per
+  i vari tool JavaScript.
 
-- `blitz.config.js` is for advanced custom configuration of Blitz. It's
-  the same format as `next.config.js`.
+- `blitz.config.js` serve per una personalizzazione avanzata di Blitz. Ha
+  lo stesso formato di `next.config.js`.
 
-- `tsconfig.json` is our recommended setup for TypeScript.
+- `tsconfig.json` è la nostra configurazione consigliata per TypeScript.
 
-## The development server {#the-development-server}
+## Il server di sviluppo {#il-server-di-sviluppo}
 
-Now make sure you are in the `my-blitz-app` folder, if you haven’t
-already, and run the following command:
+Assicurati di essere all'interno della directory `my-blitz-app`, se già
+non lo sei, e lancia il seguente comando:
 
 ```sh
 blitz dev
 ```
 
-You’ll see the following output on the command line:
+Vedrai il seguente output sulla command line:
 
 ```sh
 ✔ Compiled
@@ -147,26 +148,28 @@ info  - Using external babel configuration from /my-blitz-app/babel.config.js
 event - compiled successfully
 ```
 
-Now that the server’s running, visit
-[localhost:3000](http://localhost:3000) with your web browser. You’ll see
-a welcome page, with the Blitz logo. It worked!
+Ora che il server è attivo, visita [localhost:3000](http://localhost:3000)
+tramite web browser. Vedrai una pagina di benvenuto, con il logo Blitz.
+Funziona!
 
-## Sign up as a user {#sign-up-as-a-user}
+## Registrati come utente {#registrati-come-utente}
 
-Blitz apps are created with user signup and login already set up! So let's
-try it. Click on the **Sign Up** button. Enter any email and password and
-click **Create Account**. Then you'll be redirected back to the home page
-where you can see your user `id` and `role`.
+Le app Blitz vengono create con le procedure di registrazione e login
+utente già impostate! Quindi proviamo. Clicca sul pulsante **Sign Up**.
+Inserisci una qualsiasi email e password e clicca **Create Account**.
+Verrai reindirizzato alla homepage dove potrai vedere `id` e `ruolo` del
+tuo utente.
 
-If you want, you can also try logging out and logging back in. Or click
-**Forgot your password?** on the login page to try that flow.
+Se vuoi, puoi anche provare a effettuare il logout e poi riconnetterti
+nuovamente. Oppure clicca su **Forgot your password?** sulla pagina di
+login per verificare il flusso.
 
-## Write your first page {#write-your-first-page}
+## Crea la tua prima pagina {#crea-la-tua-prima-pagina}
 
-Next let's create your first page.
+Andiamo quindi a creare la tua prima pagina.
 
-Open the file `app/pages/index.tsx` and replace the contents of the `Home`
-component with this:
+Apri il file `app/pages/index.tsx` e sostituisci il contenuto del
+component `Home` con questo:
 
 ```tsx
 //...
@@ -186,40 +189,41 @@ const Home: BlitzPage = () => {
 //...
 ```
 
-Save the file and you should see the page update in your browser. You can
-add customize this as much as you want. When you’re ready, move on to the
-next section.
+Una volta salvate le modifiche dovresti vedere la pagina aggiornata sul
+browser. Puoi personalizzare questa parte come preferisci. Quando sei
+pronto, procedi col prossimo paragrafo.
 
-## Database setup {#database-setup}
+## Setup del database {#setup-del-database}
 
-Good news, an SQLite database was already set up for you! You can run
-`blitz prisma studio` in the terminal to open a web interface where you
-can see the data in your database.
+Buone notizie, un database SQLite è già pronto per te! Puoi lanciare
+`blitz prisma studio` nel terminale per aprire un'interfaccia web dove
+puoi visualizzare i dati nel tuo database.
 
-Note that when starting your first real project, you may want to use a
-more scalable database like PostgreSQL, to avoid the pains of switching
-your database down the road. For more information, see
-[Database overview](database-overview). For now, we will continue with the
-default SQLite database.
+Nota che una volta avviato il tuo primo vero progetto, magari preferirai
+utilizzare un database più scalabile come PostgreSQL, per evitare il
+problema di dover cambiare database in corso d'opera. Per maggiori
+informazioni, consulta l'[overview sul database](database-overview). Per
+il momento, proseguiremo col database SQLite di default.
 
-## Scaffolding code for our models {#scaffolding-code-for-our-models}
+## Scaffolding per i model {#scaffolding-per-i-model}
 
-Blitz provides a handy CLI command called [`generate`](./cli-generate) for
-scaffolding out boilerplate code. We'll use `generate` to create two
-models: `Question` and `Choice`. A `Question` has the text of the question
-and a list of choices. A `Choice` has the text of the choice, a vote
-count, and an associated question. Blitz will automatically generate an
-id, a creation timestamp, and a last updated timestamp for both models.
+Blitz fornisce un pratico comando CLI chiamato
+[`generate`](./cli-generate) per lo scaffolding del nostro boilerplate.
+Useremo `generate` per creare due model: `Question` e `Choice`. Una
+`Question` conterrà il testo della domanda e un elenco di scelte. Una
+`Choice` conterrà il testo della scelta, un conteggio dei voti e una
+domanda associata. Blitz genererà automaticamente un ID, un timestamp di
+creazione e un timestamp dell'ultimo aggiornamento per entrambi i model.
 
-#### First, we'll generate everything pertaining to the `Question` model:
+#### Per prima cosa, creeremo tutto ciò che riguarda il model `Question`:
 
 ```sh
 blitz generate all question text:string
 ```
 
-And when prompted, press the **Enter** to run `prisma migrate` which will
-update your database schema with the new model. It will ask for a name, so
-type something like "add question".
+Quando richiesto, premere **Enter** per eseguire il comando
+`prisma migrate` che aggiornerà lo schema del database con il nuovo model.
+Chiederà un nome, quindi digita qualcosa come "add question".
 
 ```
 CREATE    app/pages/questions/[questionId].tsx
@@ -262,24 +266,24 @@ migrations/
 Everything is now in sync.
 ```
 
-The `generate` command with a type of `all` generates a model and queries,
-mutation and page files. See the [Blitz generate](./cli-generate) page for
-a list of available type options.
+Il comando `generate` con type `all` crea un model e i file per le query,
+mutation e pagine. Consulta la pagina [Blitz generate](./cli-generate) per
+la lista delle opzioni disponibili.
 
-#### Next we'll generate the `Choice` model with corresponding queries and mutations.
+#### Poi creeremo il model `Choice` con le corrispondenti query e mutation.
 
-We'll pass a type of `resource` this time as we don't need to generate
-pages for the `Choice` model:
+Questa volta passeremo un type `resource` dal momento che non abbiamo
+bisogno di creare pagine per il model `Choice`:
 
 ```sh
 blitz generate resource choice text votes:int:default=0 belongsTo:question
 ```
 
-If you get an error run `blitz prisma format`
+Se si verifica un errore, lancia il comando `blitz prisma format`
 
-Note that this doesn't require a database migration because we haven't
-added the `Choice` field to the `Question` model yet. So we are choosing
-`false` when prompted to run the migration:
+Nota che questo non richiede una migration del database perché non abbiamo
+ancora aggiunto il campo `Choice` al model `Question`. Quindi scegliamo
+`false` quando ci viene chiesto di eseguire la migration:
 
 ```
 CREATE    app/choices/queries/getChoice.ts
@@ -303,10 +307,10 @@ CREATE    app/choices/mutations/updateChoice.ts
 ? Run 'prisma migrate dev' to update your database? (Y/n) › false
 ```
 
-#### Lastly let's update the `Question` model to have a relationship back to `Choice`.
+#### Infine andiamo ad aggiornare il model `Question` per metterlo in relazione con `Choice`.
 
-Open `db/schema.prisma` and add `choices Choice[]` to the `Question`
-model.
+Apri il file `db/schema.prisma` e aggiungi `choices Choice[]` al model
+`Question`.
 
 ```diff
 model Question {
@@ -318,13 +322,13 @@ model Question {
 }
 ```
 
-Now we can run the migration to update our database:
+Ora possiamo eseguire la migration per aggiornare il nostro database:
 
 ```sh
 blitz prisma migrate dev
 ```
 
-And again, enter a name for the migration, like "add choice":
+Di nuovo, inserisci un nome per la migration, come "add choice":
 
 ```
 Environment variables loaded from .env
@@ -341,20 +345,20 @@ migrations/
 Your database is now in sync with your schema.
 ```
 
-Now our database is ready and a Prisma client is also generated. Lets move
-on to play with the Prisma client!
+Adesso il nostro database è pronto ed è stato anche generato un client
+Prisma. Proseguiamo col giocare col client Prisma!
 
-## Playing with the Prisma database client {#playing-with-the-prisma-database-client}
+## Giocando col database client Prisma {#giocando-col-database-client-prisma}
 
-Now, let’s hop into the interactive Blitz shell and play around with the
-Prisma database client that Blitz gives you. To start the Blitz console,
-use this command:
+Ora, saltiamo nella shell interattiva di Blitz e giochiamo con il database
+client Prisma che Blitz offre. Per avviare la console Blitz, usa questo
+comando:
 
 ```sh
 blitz console
 ```
 
-Once you’re in the console, explore the database client:
+Una volta all'interno della console, esplora il database client:
 
 ```sh
 # No questions are in the system yet.
@@ -399,28 +403,26 @@ undefined
 ]
 ```
 
-## Update generated code for our model attributes {#update-generated-code-for-our-model-attributes}
+## Aggiornare il codice generato per gli attributi del model {#aggiornare-il-codice-generato-per-gli-attributi-del-model}
 
 <!-- prettier-ignore-start -->
 :::info
-Before running the app again, we need to customize some of the
-code that has been generated. Ultimately, these fixes will not be needed -
-but for now, we need to work around a couple outstanding issues.
+Prima di eseguire nuovamente l'app, è necessario personalizzare parte del codice generato. In futuro, queste correzioni non saranno necessarie - ma per ora dobbiamo aggirare un paio di problemi in sospeso.
 :::
 <!-- prettier-ignore-end -->
 
-The generated page content does not currently use the actual model
-attributes you defined during generation. It will soon, but in the
-meantime, let's fix the generated pages.
+Il contenuto della pagina generata attualmente non utilizza gli effettivi
+attributi del model definiti durante la generazione. Sarà presto così, ma
+nel frattempo andiamo a correggere le pagine generate.
 
-### Question pages {#question-pages}
+### Pagine per le domande {#pagine-per-le-domande}
 
 [//]:
   #
   "Remove the following section once `generate` uses actual model attributes"
 
-Jump over to `app/pages/questions/index.tsx`. Notice that a
-`QuestionsList` component has been generated for you:
+Apriamo il file `app/pages/questions/index.tsx`. È possibile notare che è
+stato generato un component `QuestionsList`:
 
 ```tsx
 // app/pages/questions/index.tsx
@@ -471,9 +473,9 @@ export const QuestionsList = () => {
 }
 ```
 
-This won’t work though! Remember that the `Question` model we created
-above doesn’t have any `name` field. To fix this, replace `question.name`
-with `question.text`:
+Questo però non funzionerà! Ricorda che il modello `Question` che abbiamo
+creato sopra non ha alcun campo `name`. Per risolvere questo problema,
+sostituisci `question.name` con `question.text`:
 
 ```diff
 // app/pages/questions/index.tsx
@@ -521,9 +523,9 @@ export const QuestionsList = () => {
 }
 ```
 
-Next, let’s apply a similar fix to
-`app/questions/components/QuestionForm.tsx`. In the form submission,
-replace the `LabeledTextField` `name` to be `"text"`
+Successivamente, applica una correzione simile a
+`app/questions/components/QuestionForm.tsx`. Nella parte di submission del
+form, sostituisci il `LabeledTextField` `name` con `"text"`
 
 ```diff
 export function QuestionForm<S extends z.ZodType<any, any>>(
@@ -538,10 +540,11 @@ export function QuestionForm<S extends z.ZodType<any, any>>(
 }
 ```
 
-### `createQuestion` mutation {#create-question-mutation}
+### Mutation `createQuestion` {#mutation-create-question}
 
-In `app/questions/mutations/createQuestion.ts`, we need to update the
-`CreateQuestion` zod validation schema to use `text` instead of `name`.
+In `app/questions/mutations/createQuestion.ts`, abbiamo bisogno di
+aggiornare lo zod validation schema `CreateQuestion` per usare `text`
+invece di `name`.
 
 ```diff
 // app/questions/mutations/createQuestion.ts
@@ -555,10 +558,11 @@ const CreateQuestion = z
 // ...
 ```
 
-### `updateQuestion` mutation {#update-question-mutation}
+### Mutation `updateQuestion` {#update-question-mutation}
 
-In `app/questions/mutations/updateQuestion.ts`, we need to update the
-`UpdateQuestion` zod validation schema to use `text` instead of `name`.
+In `app/questions/mutations/updateQuestion.ts`, abbiamo bisogno di
+aggiornare lo zod validation schema `UpdateQuestion` per usare `text`
+invece di `name`.
 
 ```diff
 // app/questions/mutations/updateQuestion.ts
@@ -573,22 +577,23 @@ const UpdateQuestion = z
 // ...
 ```
 
-### `deleteQuestion` mutation {#delete-question-mutation}
+### Mutation `deleteQuestion` {#mutation-delete-question}
 
 [//]: # "Remove this section once Prisma supports cascading deletes"
 
-Prisma does not yet support "cascading deletes". In the context of this
-tutorial, that means it does not currently delete the `Choice` data when
-deleting a `Question`. We need to temporarily augment the generated
-`deleteQuestion` mutation in order to do this manually. Open up
-`app/questions/mutations/deleteQuestion.ts` in your text editor and add
-the following to the top of the function body:
+Prisma non supporta ancore le "cascading delete". Nell'ambito di questo
+tutorial, questo implica che non vengono cancellati i dati di `Choice`
+quando viene cancellata una `Question`. Abbiamo bisogno di aumentare
+temporaneamente la mutation `deleteQuestion` in modo da effettuare
+l'operazione manualmente. Apri il file
+`app/questions/mutations/deleteQuestion.ts` in un editor di testo e
+aggiungi il seguente contenuto all'inizio del corpo della funzione:
 
 ```ts
 await db.choice.deleteMany({where: {questionId: id}})
 ```
 
-The end result should be as such:
+Il risultato finale sarà qualcosa di questo tipo:
 
 ```diff
 // app/questions/mutations/deleteQuestion.ts
@@ -605,22 +610,23 @@ export default resolver.pipe(
 )
 ```
 
-This mutation will now delete the choices associated with the question
-prior to deleting the question itself.
+Questa mutation eliminerà ora le scelte associate ad una domanda prima di
+eliminare la domanda stessa.
 
-#### Now try creating, updating, and deleting questions
+#### Ora prova a creare, aggiornare ed eliminare le domande
 
-Great! Now make sure your app is running. If it isn’t, run `blitz dev` in
-your terminal, and visit `localhost:3000/questions`. Try creating
-questions, editing, and deleting them.
+Ottimo! Ora assicurati che la tua app sia in esecuzione. In caso
+contrario, esegui `blitz dev` nel tuo terminale e collegati a
+`localhost:3000/questions`. Prova a creare domande, modificarle ed
+eliminarle.
 
-## Adding choices to the question form {#adding-choices-to-the-question-form}
+## Aggiungere delle scelte al form della domanda {#aggiungere-delle-scelte-al-form-della-domanda}
 
-You’re doing great so far! The next thing we’ll do is add choices to our
-question form. Open `app/questions/components/QuestionForm.tsx` in your
-editor.
+Fin qui ottimo lavoro! Il prossimo passo che faremo è aggiungere delle
+scelte al form della domanda. Apri il file
+`app/questions/components/QuestionForm.tsx` nell'editor.
 
-Add three more `<LabeledTextField>` components as choices.
+Aggiungi altri tre component `<LabeledTextField>` come scelte.
 
 ```diff
 export function QuestionForm<S extends z.ZodType<any, any>>(
@@ -637,8 +643,8 @@ export function QuestionForm<S extends z.ZodType<any, any>>(
 }
 ```
 
-Next open `app/pages/questions/new.tsx` and set `initialValues` to be as
-follows:
+Poi apri il file `app/pages/questions/new.tsx` e imposta la variabile
+`initialValues` come segue:
 
 ```diff
       <QuestionForm
@@ -659,10 +665,10 @@ follows:
       />
 ```
 
-Then open `app/questions/mutations/createQuestion.ts` and update the zod
-schema so that the choice data is accepted in the mutation. And we also
-need to update the `db.question.create` call so that the choices will also
-be created.
+Adesso apri il file `app/questions/mutations/createQuestion.ts` e aggiorna
+lo schema zod in modo tale che i dati della scelta siano accettati nella
+mutation. È anche necessario aggiornare la chiamata `db.question.create`
+in modo tale che le scelte vengano anche create.
 
 ```diff
 // app/questions/mutations/createQuestion.ts
@@ -691,19 +697,19 @@ export default resolver.pipe(
 )
 ```
 
-#### Try it out
+#### Provalo
 
-Now you can go to `localhost:3000/questions/new` and create a new question
-with choices!
+Adesso puoi collegarti su `localhost:3000/questions/new` e creare una
+nuova domanda completa di scelte!
 
-## Listing choices {#listing-choices}
+## Elencare le scelte {#elencare-le-scelte}
 
-Time for a breather. Go back to `localhost:3000/questions` in your browser
-and look at all the questions you‘ve created. How about we list these
-questions’ choices here too? First, we need to customize the question
-queries. In Prisma, you need to manually let the client know that you want
-to query for nested relations. Change your `getQuestion.ts` and
-`getQuestions.ts` files to look like this:
+Prendiamoci un attimo di respiro. Torna su `localhost:3000/questions` e
+guarda tutte le domande che hai creato. Che ne dici di elencare anche qui
+le scelte di queste domande? Per prima cosa, dobbiamo personalizzare le
+query delle domande. In Prisma, è necessario comunicare manualmente al
+client che si desidera eseguire una query per le relazioni nested.
+Modifica i file `getQuestion.ts` e `getQuestions.ts` in questo modo:
 
 ```diff
 // app/questions/queries/getQuestion.ts
@@ -765,9 +771,9 @@ export default resolver.pipe(
 )
 ```
 
-Now hop back to our main questions page
-(`app/pages/questions/index.tsx`)in your editor, and we can list the
-choices of each question. And add this code beneath the `Link` in our
+Adesso riprendi sull'editor la pagina principale delle domande
+(`app/pages/questions/index.tsx`), in modo da poter elencare la lista
+delle choice per ogni domanda. Aggiungi questo codice sotto `Link` nel
 `QuestionsList`:
 
 ```diff
@@ -793,18 +799,18 @@ choices of each question. And add this code beneath the `Link` in our
 // ...
 ```
 
-Now check `/questions` in the browser. **Magic!**
+Adesso controlla la pagina `/questions` sul browser. **Magia!**
 
-## Let’s let people vote on these questions! {#let-people-vote-on-questions}
+## Lasciamo che le persone votino sulle domande! {#lasciamo-che-le-persone-votino-sulle-domande}
 
-Open `app/pages/questions/[questionId].tsx` in your editor. First, we’re
-going to improve this page somewhat.
+Apriamo `app/pages/questions/[questionId].tsx` nell'editor. Innanzitutto,
+miglioreremo leggermente questa pagina.
 
-1. Replace `<h1>Question {question.id}</h1>` with
+1. Sostituisci `<h1>Question {question.id}</h1>` con
    `<h1>{question.text}</h1>`.
 
-2. Delete the `pre` element, and copy in our choices list which we wrote
-   before:
+2. Cancella l'elemento `pre`, e copia nella lista della scelte quello che
+   abbiamo scritto prima:
 
 ```tsx
 <ul>
@@ -816,8 +822,7 @@ going to improve this page somewhat.
 </ul>
 ```
 
-If you go back to your browser, your page should now look something like
-this!
+Se ritorni sul browser, la pagina dovrebbe essere qualcosa di simile!
 
 <img
   width="567"
@@ -825,10 +830,11 @@ this!
   src="https://user-images.githubusercontent.com/24858006/80387990-3c3d8b80-88a1-11ea-956a-5be85f1e8f12.png"
 />
 
-#### Now it’s time to add voting!
+#### Ora è il momento di aggiungere la votazione!
 
-First we need to open `app/choices/mutations/updateChoice.ts`, update the
-zod schema, and add a vote increment.
+Per prima cosa dobbiamo aprire il file
+`app/choices/mutations/updateChoice.ts`, aggiornare lo schema zod e
+aggiungere un incremento di voto.
 
 ```diff
 const UpdateChoice = z
@@ -853,10 +859,10 @@ export default resolver.pipe(
 )
 ```
 
-Now go back to `app/pages/questions/[questionId].tsx` and make the
-following changes:
+Adesso ritorna sul file `app/pages/questions/[questionId].tsx` e applica
+le seguenti modifiche:
 
-In our `li`, add a `button` like so:
+Nel tuo `li`, aggiungi un `button` come questo:
 
 ```tsx
 <li key={choice.id}>
@@ -865,8 +871,8 @@ In our `li`, add a `button` like so:
 </li>
 ```
 
-Then, import the `updateChoice` mutation we updated and create a
-`handleVote` function in our page:
+Quindi, importa la mutation `updateChoice` che abbiamo aggiornato e crea
+una funzione `handleVote` nella nostra pagina:
 
 ```diff
 // app/pages/questions/[questionId].tsx
@@ -893,8 +899,8 @@ export const Question = () => {
   return (
 ```
 
-And then we need to update the question `useQuery` call to return the
-`refetch` function which we use inside `handleVote`:
+Poi è necessario aggiornare la chiamata `useQuery` per restituire la
+function `refetch` che utilizziamo all'interno di `handleVote`:
 
 ```diff
 // app/pages/questions/[questionId].tsx
@@ -905,13 +911,14 @@ And then we need to update the question `useQuery` call to return the
 //...
 ```
 
-Finally, we’ll tell our new `button` to call that function!
+Infine, diremo al nostro nuovo `button` di richiamare quella function!
 
 ```tsx
 <button onClick={() => handleVote(choice.id)}>Vote</button>
 ```
 
-The final `Question` component should now look like this:
+La versione finale del component `Question` dovrebbe essere qualcosa di
+simile:
 
 ```tsx
 export const Question = () => {
@@ -969,14 +976,14 @@ export const Question = () => {
 }
 ```
 
-## Lastly, let's allow editing choices for an existing question {#edit-choices-for-question}
+## Infine, consentiamo di modificare le scelte per una domanda esistente {#modificare-le-scelte-per-una-domanda}
 
-If you click the **Edit** button on one of your existing questions, you'll
-see it uses the same form as creating questions. So that part is already
-done! We only need to update our mutation.
+Se clicchi sul pulsante **Edit** su una delle domande esistenti, vedrai
+che utilizza lo stesso form rispetto alla creazione di una domande. Quindi
+quella parte è già fatta! Dobbiamo solo aggiornare la mutation.
 
-Open `app/questions/mutations/updateQuestion.ts` and make the following
-changes:
+Apri il file `app/questions/mutations/updateQuestion.ts` ed effettua le
+seguenti modifiche:
 
 ```diff
 // app/questions/mutations/updateQuestion.ts
@@ -1021,24 +1028,27 @@ export default resolver.pipe(
 ```
 
 [`upsert`](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert)
-is a special operation that means, "If this item exists, update it. Else
-create it". This is perfect for this case because we didn't require the
-user to add three choices when creating the question. So if later the user
-adds another choice by editing the question, then it'll be created here.
+è un'operazione speciale che significa: "Se questo elemento esiste,
+aggiornalo. Altrimenti crealo". Questo è perfetto per questo caso perché
+non abbiamo richiesto all'utente di aggiungere tre scelte durante la
+creazione della domanda. Quindi, se in seguito l'utente aggiunge un'altra
+scelta modificando la domanda, questa verrà creata qui.
 
-## Conclusion {#conclusion}
+## Conclusione {#conclusione}
 
-🥳 Congrats! You created your very own Blitz app! Have fun playing around
-with it, or sharing it with your friends. Now that you’ve finished this
-tutorial, why not try making your voting app even better? You could try:
+🥳 Congratulazioni! Hai creato la tua app Blitz! Divertiti a giocarci o
+condividila con i tuoi amici. Ora che hai finito questo tutorial, perché
+non provare a migliorare ulteriormente la tua app di voto? Potresti
+provare a:
 
-- Adding styling (Hint, try `blitz install tailwind` or
+- Aggiungere degli stili (Suggerimento, prova `blitz install tailwind` o
   `blitz install chakra-ui`)
-- Showing some more statistics about votes
-- Deploying live on [Render](./deploy-render) or [Vercel](./deploy-vercel)
+- Mostrare qualche altra statistica sui voti
+- Effettuare un deploy live su [Render](./deploy-render) o
+  [Vercel](./deploy-vercel)
 
-If you want to share your project with the world wide Blitz community
-there is no better place to do that than on Discord.
+Se vuoi condividere il tuo progetto con la community mondiale di Blitz,
+non c'è modo migliore per farlo che su Discord.
 
-Visit [discord.blitzjs.com](https://discord.blitzjs.com). Then, post the
-link to the **#built-with-blitz** channel to share it with everyone!
+Visita [discord.blitzjs.com](https://discord.blitzjs.com). Quindi, carica
+il link sul canale **#built-with-blitz** per condividerlo con tutti!
