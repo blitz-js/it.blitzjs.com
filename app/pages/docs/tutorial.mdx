@@ -405,11 +405,21 @@ undefined
 
 ## Aggiornare il codice generato per gli attributi del model {#aggiornare-il-codice-generato-per-gli-attributi-del-model}
 
+<<<<<<< HEAD
 <!-- prettier-ignore-start -->
 :::info
 Prima di eseguire nuovamente l'app, è necessario personalizzare parte del codice generato. In futuro, queste correzioni non saranno necessarie - ma per ora dobbiamo aggirare un paio di problemi in sospeso.
 :::
 <!-- prettier-ignore-end -->
+=======
+<Card type="info">
+
+Before running the app again, we need to customize some of the code that
+has been generated. Ultimately, these fixes will not be needed - but for
+now, we need to work around a couple outstanding issues.
+
+</Card>
+>>>>>>> 0275b46dd56f19c12afb3828e1e7041293198979
 
 Il contenuto della pagina generata attualmente non utilizza gli effettivi
 attributi del model definiti durante la generazione. Sarà presto così, ma
@@ -430,20 +440,21 @@ stato generato un component `QuestionsList`:
 export const QuestionsList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
-  const [{questions, hasMore}, {isPreviousData}] = usePaginatedQuery(
+  const [{ questions, hasMore }, { isPreviousData }] = usePaginatedQuery(
     getQuestions,
     {
-      orderBy: {id: "asc"},
+      orderBy: { id: "asc" },
       skip: ITEMS_PER_PAGE * page,
       take: ITEMS_PER_PAGE,
-    },
+    }
   )
 
-  const goToPreviousPage = () => router.push({query: {page: page - 1}})
+  const goToPreviousPage = () =>
+    router.push({ query: { page: page - 1 } })
 
   const goToNextPage = () => {
     if (!isPreviousData && hasMore) {
-      router.push({query: {page: page + 1}})
+      router.push({ query: { page: page + 1 } })
     }
   }
 
@@ -590,7 +601,7 @@ l'operazione manualmente. Apri il file
 aggiungi il seguente contenuto all'inizio del corpo della funzione:
 
 ```ts
-await db.choice.deleteMany({where: {questionId: id}})
+await db.choice.deleteMany({ where: { questionId: id } })
 ```
 
 Il risultato finale sarà qualcosa di questo tipo:
@@ -925,12 +936,14 @@ export const Question = () => {
   const router = useRouter()
   const questionId = useParam("questionId", "number")
   const [deleteQuestionMutation] = useMutation(deleteQuestion)
-  const [question, {refetch}] = useQuery(getQuestion, {id: questionId})
+  const [question, { refetch }] = useQuery(getQuestion, {
+    id: questionId,
+  })
   const [updateChoiceMutation] = useMutation(updateChoice)
 
   const handleVote = async (id: number) => {
     try {
-      await updateChoiceMutation({id})
+      await updateChoiceMutation({ id })
       refetch()
     } catch (error) {
       alert("Error updating choice " + JSON.stringify(error, null, 2))
@@ -962,11 +975,11 @@ export const Question = () => {
           type="button"
           onClick={async () => {
             if (window.confirm("This will be deleted")) {
-              await deleteQuestionMutation({id: question.id})
+              await deleteQuestionMutation({ id: question.id })
               router.push("/questions")
             }
           }}
-          style={{marginLeft: "0.5rem"}}
+          style={{ marginLeft: "0.5rem" }}
         >
           Delete
         </button>
