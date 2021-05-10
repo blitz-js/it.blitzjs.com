@@ -925,7 +925,9 @@ export const Question = () => {
   const router = useRouter()
   const questionId = useParam("questionId", "number")
   const [deleteQuestionMutation] = useMutation(deleteQuestion)
-  const [question, {refetch}] = useQuery(getQuestion, {id: questionId})
+  const [question, {refetch}] = useQuery(getQuestion, {
+    id: questionId,
+  })
   const [updateChoiceMutation] = useMutation(updateChoice)
 
   const handleVote = async (id: number) => {
@@ -1020,6 +1022,9 @@ export default resolver.pipe(
 +         })),
 +       },
 +     },
++     include: {
++       choices: true,
++     },
 +   })
 
     return question
@@ -1033,6 +1038,12 @@ aggiornalo. Altrimenti crealo". Questo è perfetto per questo caso perché
 non abbiamo richiesto all'utente di aggiungere tre scelte durante la
 creazione della domanda. Quindi, se in seguito l'utente aggiunge un'altra
 scelta modificando la domanda, questa verrà creata qui.
+
+## Cleanup
+
+Affinché `yarn tsc` o `git push` vadano a buon fine, dovrai cancellare
+`app/choices/mutations/createChoice.ts` (non utilizzato) o aggiornare lo
+schema zod CreateChoice per includere i campi obbligatori.
 
 ## Conclusione {#conclusione}
 
