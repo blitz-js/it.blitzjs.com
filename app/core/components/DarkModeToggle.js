@@ -18,7 +18,7 @@ const DarkModeToggle = ({className}) => {
   return (
     <button
       onClick={switchTheme}
-      className={`pr-2 rounded focus:outline-none focus:ring-inset focus:ring-white focus:ring-2 ${className}`}
+      className={`pr-2 rounded focus:outline-none focus:ring-inset focus:ring-white ${className}`}
     >
       {theme === "dark" ? (
         <BiToggleRight size="2rem" className="inline" />
@@ -26,7 +26,8 @@ const DarkModeToggle = ({className}) => {
         <BiToggleLeft size="2rem" className="inline" />
       )}
       <span className="mx-1">
-        <span className="lg:hidden">Tema </span>Scuro
+        <span className="lg:hidden">Tema </span>
+        {theme === "dark" ? "Scuro" : "Chiaro"}
       </span>
     </button>
   )
