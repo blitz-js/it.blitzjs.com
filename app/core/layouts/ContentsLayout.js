@@ -183,7 +183,8 @@ export function ContentsLayout({children, meta, tableOfContents: toc}) {
                 rel="noopener noreferrer"
                 className="flex items-center py-2 text-sm"
               >
-                <FaGithub className="mr-3" /> Idea for improving this page? Edit it on GitHub.
+                <FaGithub className="mr-3" /> Idee per migliorare questa pagina? Modificala su
+                GitHub.
               </a>
               {(prev || next) && (
                 <>
