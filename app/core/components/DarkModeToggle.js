@@ -26,9 +26,8 @@ const DarkModeToggle = ({className}) => {
         <BiToggleLeft size="2rem" className="inline" />
       )}
       <span className="mx-1">
-        {theme === "dark" ? "Dark" : "Light"}
-        <span className="lg:hidden"> Mode</span>
-        <span className="lg:hidden">Tema </span>{theme === "dark" ? "Scuro" : "Chiaro"}
+        <span className="lg:hidden">Tema </span>
+        {theme === "dark" ? "Scuro" : "Chiaro"}
       </span>
     </button>
   )
