@@ -54,9 +54,15 @@ const Home = ({randomContributors}) => {
                     Il Framework React Fullstack
                   </h2>
                   <p className="text-lg xl:text-xl xl:font-medium text-off-white lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:w-4/5">
+<<<<<<< HEAD
                     Blitz è un framework completo che si ispira a Ruby on Rails, è costruito su
                     Node.js, e presenta un'astrazione del data layer "Zero-API" che elimina la
                     necessità di utilizzare REST o GraphQL.
+=======
+                    Blitz is a batteries-included framework that&apos;s inspired by Ruby on Rails,
+                    is built on Next.js, and features a &quot;Zero-API&quot; data layer abstraction
+                    that eliminates the need for REST/GraphQL.
+>>>>>>> 9a282371a929bae5732160068e4ff99fb796722c
                   </p>
                   <div className="flex space-x-4">
                     <ButtonLink className="w-2/3 lg:w-auto rounded-tl-xl" href="/docs/get-started">
@@ -171,8 +177,13 @@ const Home = ({randomContributors}) => {
                         prestabilito, sei totalmente libero di farlo.
                       </p>
                       <p>
+<<<<<<< HEAD
                         E quasi tutto è collegabile. Ad esempio, non stabiliamo quali librerie di
                         styling o form tu debba utilizzare.
+=======
+                        And nearly everything is pluggable. For example, we don&apos;t mandate which
+                        styling or form libraries you use.
+>>>>>>> 9a282371a929bae5732160068e4ff99fb796722c
                       </p>
                     </Feature>
                     <Feature title="Convenzione su Configurazione">
@@ -195,8 +206,13 @@ const Home = ({randomContributors}) => {
                     </Feature>
                     <Feature title="Stabilità">
                       <p>
+<<<<<<< HEAD
                         Una volta rilasciata la versione 1.0, passeremo a un ciclo di rilascio
                         stabile e definibile con più canali come stable, LTS e beta.
+=======
+                        Once we reach version 1.0, we&apos;ll switch to a stable, predictable
+                        release cycle with multiple channels like stable, LTS, and beta.
+>>>>>>> 9a282371a929bae5732160068e4ff99fb796722c
                       </p>
                       <p>Stiamo prendendo molta ispirazione da Ember in questo senso.</p>
                     </Feature>
@@ -217,7 +233,12 @@ const Home = ({randomContributors}) => {
                   href="https://codesandbox.io/s/flamboyant-meninsky-j63yq?file=/app/projects/mutations/createProject.ts"
                   className="h-sandbox xl:h-xl-sandbox block relative"
                 >
-                  <Image src="/img/sandbox-pic.png" layout="fill" className="object-cover" />
+                  <Image
+                    src="/img/sandbox-pic.png"
+                    layout="fill"
+                    className="object-cover"
+                    alt="Codesandbox placeholder"
+                  />
                   <div className="absolute inset-0 bg-gray-800 opacity-0 hover:opacity-70 flex items-center justify-center text-white text-6xl font-bold">
                     Clicca per aprire in una nuova finestra
                   </div>
@@ -286,8 +307,12 @@ const Home = ({randomContributors}) => {
                       insieme.
                     </p>
                     <p className="lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue lg:bg-clip-text">
+<<<<<<< HEAD
                       Ti invitiamo a contribuire per rendere Blitz il miglior framework che abbiamo
                       mai avuto!
+=======
+                      We invite you to help make Blitz the best framework we&apos;ve ever had!
+>>>>>>> 9a282371a929bae5732160068e4ff99fb796722c
                     </p>
                   </div>
                   <Link href="/docs/contributing" passHref>
