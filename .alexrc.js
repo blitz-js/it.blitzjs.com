@@ -11,4 +11,6 @@ exports.allow = [
   "obvious",
   "alla",
   "easy",
+  "host",
+  "host-hostess",
 ]

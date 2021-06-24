@@ -55,8 +55,8 @@ const Home = ({randomContributors}) => {
                   </h2>
                   <p className="text-lg xl:text-xl xl:font-medium text-off-white lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-blue-gradient-white lg:to-blue-gradient-light-blue xl:w-4/5">
                     Blitz è un framework completo che si ispira a Ruby on Rails, è costruito su
-                    Node.js, e presenta un'astrazione del data layer "Zero-API" che elimina la
-                    necessità di utilizzare REST o GraphQL.
+                    Node.js, e presenta un&apos;astrazione del data layer &quot;Zero-API&quot; che
+                    elimina la necessità di utilizzare REST o GraphQL.
                   </p>
                   <div className="flex space-x-4">
                     <ButtonLink className="w-2/3 lg:w-auto rounded-tl-xl" href="/docs/get-started">
@@ -97,7 +97,7 @@ const Home = ({randomContributors}) => {
             </div>
             <div className="z-10 px-6 mx-auto space-y-12 text-lg text-center text-white lg:space-y-0 lg:space-x-12 lg:flex lg:text-left max-w-7xl xl:font-mediumxl:text-xl">
               <FeatureIcon icon="layers">
-                Il data layer "Zero-API" consente di{" "}
+                Il data layer &quot;Zero-API&quot; consente di{" "}
                 <strong>importare il codice del server direttamente nei componenti</strong> invece
                 di dover aggiungere manualmente gli endpoint delle API ed eseguire fetching e
                 caching lato client.
@@ -111,9 +111,9 @@ const Home = ({randomContributors}) => {
               <FeatureIcon icon="graphUp">
                 Pur restando estremamente flessibile, fornisce{" "}
                 <strong>utili impostazioni predefinite e convenzioni</strong> per elementi come il
-                routing, la struttura dei file e l'autenticazione. Fornisce utili impostazioni
+                routing, la struttura dei file e l&apos;autenticazione. Fornisce utili impostazioni
                 predefinite e convenzioni per cose come il routing, la struttura dei file e
-                l'autenticazione, pur essendo estremamente flessibile.
+                l&apos;autenticazione, pur essendo estremamente flessibile.
               </FeatureIcon>
             </div>
             <div className="grid w-full gap-5 px-6 mx-auto text-white xl:gap-10 max-w-7xl lg:grid-cols-2">
@@ -135,7 +135,7 @@ const Home = ({randomContributors}) => {
 
             <div className="relative w-full mx-auto space-y-10 lg:space-y-20 xl:space-y-36 max-w-7xl">
               <h2 className="px-6 text-3xl font-semibold xl:text-5xl xl:w-1/2">
-                Tutto quello che ti occorre per realizzare un'App
+                Tutto quello che ti occorre per realizzare un&apos;App
               </h2>
               <div className="w-full">
                 <Hand
@@ -146,8 +146,8 @@ const Home = ({randomContributors}) => {
                   <div className="grid pb-4 ml-6 features-grid lg:gap-y-14">
                     <Feature title="Fullstack e Monolitico">
                       <p>
-                        Include tutto, dal database al frontend, tutto all'interno di una singola
-                        applicazione. Un singola cosa da sviluppare. Una singola cosa da
+                        Include tutto, dal database al frontend, tutto all&apos;interno di una
+                        singola applicazione. Un singola cosa da sviluppare. Una singola cosa da
                         distribuire.
                       </p>
                       <p>E si può distribuire sia su un server che serverless.</p>
@@ -156,18 +156,18 @@ const Home = ({randomContributors}) => {
                       <p>
                         Invece di eseguire il fetching dei dati dal back-end, puoi importare il
                         codice del server direttamente nei componenti. In fase di compilazione,
-                        questa importazione viene sostituita con un'API HTTP generata
+                        questa importazione viene sostituita con un&apos;API HTTP generata
                         automaticamente.
                       </p>
                       <p>
-                        L'API generata può anche essere utilizzata da altre applicazioni o sistemi
-                        di terze parti.
+                        L&apos;API generata può anche essere utilizzata da altre applicazioni o
+                        sistemi di terze parti.
                       </p>
                     </Feature>
                     <Feature title="Libertà di Opinione">
                       <p>
-                        L'esperienza immediata ti guida su un percorso perfetto per la maggior parte
-                        delle applicazioni. Ma quando hai bisogno di uscire dallo schema
+                        L&apos;esperienza immediata ti guida su un percorso perfetto per la maggior
+                        parte delle applicazioni. Ma quando hai bisogno di uscire dallo schema
                         prestabilito, sei totalmente libero di farlo.
                       </p>
                       <p>
@@ -178,13 +178,13 @@ const Home = ({randomContributors}) => {
                     <Feature title="Convenzione su Configurazione">
                       <p>
                         Blitz crea al posto tuo tutte le impostazioni e configurazioni più noiose.
-                        La struttura comune del progetto e gli schemi dell'architettura rendono
-                        facile passare da un'app Blitz all'altra senza difficoltà.
+                        La struttura comune del progetto e gli schemi dell&apos;architettura rendono
+                        facile passare da un&apos;app Blitz all&apos;altra senza difficoltà.
                       </p>
                     </Feature>
                     <Feature title="Facile da Iniziare, Facile da Scalare">
                       <p>
-                        Facile sia per i principianti che per chi volesse migrare un'app
+                        Facile sia per i principianti che per chi volesse migrare un&apos;app
                         pre-esistente da Next.js a Blitz.
                       </p>
                       <p>
@@ -217,7 +217,12 @@ const Home = ({randomContributors}) => {
                   href="https://codesandbox.io/s/flamboyant-meninsky-j63yq?file=/app/projects/mutations/createProject.ts"
                   className="h-sandbox xl:h-xl-sandbox block relative"
                 >
-                  <Image src="/img/sandbox-pic.png" layout="fill" className="object-cover" />
+                  <Image
+                    src="/img/sandbox-pic.png"
+                    layout="fill"
+                    className="object-cover"
+                    alt="Codesandbox placeholder"
+                  />
                   <div className="absolute inset-0 bg-gray-800 opacity-0 hover:opacity-70 flex items-center justify-center text-white text-6xl font-bold">
                     Clicca per aprire in una nuova finestra
                   </div>
@@ -325,24 +330,24 @@ const Home = ({randomContributors}) => {
                   className="hidden xl:block xl:-top-40 xl:-right-52"
                 />
                 <FeatureIconTitle icon="thumbsUp" title="Autenticazione e Permessi">
-                  L'autenticazione integrata è semplicissima e molto sicura. Funziona con qualsiasi
-                  identity provider, inclusi nome utente e password self-hosted e sistemi di terze
-                  parti come Auth0.
+                  L&apos;autenticazione integrata è semplicissima e molto sicura. Funziona con
+                  qualsiasi identity provider, inclusi nome utente e password self-hosted e sistemi
+                  di terze parti come Auth0.
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="database" title="Libertà sul Database">
                   Puoi usare qualsiasi database tu voglia. Prisma 2 è il client predefinito, ma puoi
                   rimuoverlo e utilizzarne altri, come Fauna o DynamoDB.
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="fileCode" title="Recipe">
-                  Un comando per installare codice e/o package all'interno dell'app Blitz. Ad
-                  esempio: `blitz install tailwind` o `blitz install chakra-ui`. Una recipe può
+                  Un comando per installare codice e/o package all&apos;interno dell&apos;app Blitz.
+                  Ad esempio: `blitz install tailwind` o `blitz install chakra-ui`. Una recipe può
                   essere creata da chiunque.
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="plugin" title="Architettura Backend">
                   Blitz è impostato per attività intensive lato server come invio di e-mail, cron
                   job, elaborazione in background, generazione di PDF, ecc. Attualmente abbiamo
                   guide backend minime, ma stiamo lavorando allo sviluppo di più modelli e
-                  all'aggiunta di più documenti.
+                  all&apos;aggiunta di più documenti.
                 </FeatureIconTitle>
                 <FeatureIconTitle icon="typescript" title="Eccellente Supporto per Typescript">
                   Blitz è realizzato con Typescript e il suo data layer è completamente sicuro
