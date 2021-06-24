@@ -97,7 +97,7 @@ const Home = ({randomContributors}) => {
             </div>
             <div className="z-10 px-6 mx-auto space-y-12 text-lg text-center text-white lg:space-y-0 lg:space-x-12 lg:flex lg:text-left max-w-7xl xl:font-mediumxl:text-xl">
               <FeatureIcon icon="layers">
-                Il data layer "Zero-API" consente di{" "}
+                Il data layer &quot;Zero-API&quot; consente di{" "}
                 <strong>importare il codice del server direttamente nei componenti</strong> invece
                 di dover aggiungere manualmente gli endpoint delle API ed eseguire fetching e
                 caching lato client.
